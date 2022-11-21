@@ -6,7 +6,8 @@ RUN apt-get update && \
 	apt-get install -y git unzip libzip-dev libicu-dev libonig-dev && \
 	docker-php-ext-install intl pdo_mysql zip bcmath
 
-RUN apt-get install -y nodejs npm
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash -
+RUN apt-get install -y nodejs
 		
 COPY ./docker/app/php.ini /usr/local/etc/php/php.ini
 
